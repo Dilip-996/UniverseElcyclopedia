@@ -1,0 +1,55 @@
+export const spaceFacts = [
+  "A day on Venus is longer than a year on Venus!",
+  "You could fit all the other planets inside Jupiter — with room left over.",
+  "A year on Mercury is only 88 Earth days. Blink and it is birthday time!",
+  "Saturn's rings are made of ice and rock, some as small as sugar cubes.",
+  "The Sun is so big that about 1.3 million Earths could fit inside it.",
+  "Neutron stars are so dense that a teaspoon would weigh as much as a mountain.",
+  "There are more stars in the universe than grains of sand on all Earth's beaches.",
+  "One day on Jupiter is only about 10 hours long. Super speedy spinner!",
+  "The footprints on the Moon will stay there for millions of years.",
+  "Mars has two tiny moons named Phobos and Deimos — Fear and Panic!",
+  "Light from the Sun takes about 8 minutes to reach your face.",
+  "A black hole is not a hole you fall through — it is a place where gravity is extra strong.",
+  "The Milky Way looks like spilled milk across the night sky.",
+  "Voyager 1 is the farthest human-made object from Earth. It is still traveling!",
+  "Uranus rolls around the Sun on its side like a cosmic bowling ball.",
+];
+
+export const homeJourney = [
+  {
+    id: "earth",
+    title: "Earth",
+    subtitle: "Home base",
+    fact: "The only world we know with oceans, forests, and pizza.",
+    color: "#3b82c4",
+  },
+  {
+    id: "moon",
+    title: "Moon",
+    subtitle: "Next door",
+    fact: "A three-day rocket ride away. Humans walked here in 1969.",
+    color: "#d6d3d1",
+  },
+  {
+    id: "solar",
+    title: "Solar System",
+    subtitle: "Our neighborhood",
+    fact: "One star, eight planets, and lots of rocky leftovers.",
+    color: "#fbbf24",
+  },
+  {
+    id: "milky",
+    title: "Milky Way",
+    subtitle: "Our galaxy",
+    fact: "A giant swirl with about 100 billion stars.",
+    color: "#c084fc",
+  },
+  {
+    id: "universe",
+    title: "Observable Universe",
+    subtitle: "Everything we can see",
+    fact: "Billions of galaxies, stretching farther than we can imagine.",
+    color: "#22d3ee",
+  },
+];

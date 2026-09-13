@@ -1,0 +1,418 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --color-space-950: #05040d;
+  --color-space-900: #0a0820;
+  --color-space-800: #14102e;
+  --color-space-700: #1e1844;
+  --color-aurora: #5ec8d8;
+  --color-solar: #d4b46a;
+  --color-comet: #d49aa4;
+  --color-nebula: #b29ad6;
+  --color-lime: #a3e635;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: #05040d;
+  color: #f8fafc;
+}
+
+body {
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid #5ec8d8;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 80;
+  border-radius: 999px;
+  background: #5ec8d8;
+  color: #05040d;
+  padding: 0.6rem 1rem;
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.page-x {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .page-x {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  font-weight: 800;
+  padding: 0.7rem 1.15rem;
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+@media (min-width: 640px) {
+  .btn {
+    padding: 0.8rem 1.35rem;
+  }
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn-primary {
+  background: #5ec8d8;
+  color: #05040d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 22px rgba(94, 200, 216, 0.18);
+}
+
+.btn-primary:hover {
+  background: #67e8f9;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: white;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-light {
+  background: white;
+  color: #05040d;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: rgba(192, 132, 252, 0.45);
+  color: white;
+}
+
+.space-bg {
+  background:
+    radial-gradient(1100px 640px at 10% -8%, rgba(124, 58, 237, 0.2), transparent 56%),
+    radial-gradient(900px 560px at 92% 6%, rgba(14, 165, 233, 0.14), transparent 52%),
+    radial-gradient(820px 520px at 78% 92%, rgba(212, 154, 164, 0.07), transparent 52%),
+    radial-gradient(700px 420px at 40% 70%, rgba(212, 180, 106, 0.04), transparent 60%),
+    linear-gradient(180deg, #070616 0%, #0b0824 42%, #05040d 100%);
+}
+
+.hero-atmosphere {
+  background:
+    radial-gradient(circle at 70% 45%, rgba(56, 189, 248, 0.14), transparent 30%),
+    radial-gradient(circle at 30% 20%, rgba(168, 85, 247, 0.1), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(212, 154, 164, 0.06), transparent 26%);
+}
+
+.glass {
+  background: rgba(15, 12, 40, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.glow-btn {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 30px rgba(34, 211, 238, 0.18);
+}
+
+.star {
+  position: absolute;
+  border-radius: 999px;
+  background: white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate3d(6px, -8px, 0) rotate(3deg);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 42px rgba(251, 191, 36, 0.55);
+  }
+}
+
+.floaty {
+  animation: floaty 8s ease-in-out infinite;
+}
+
+.drift {
+  animation: drift 12s ease-in-out infinite;
+}
+
+.orbit-spin {
+  animation: spin-slow var(--orbit, 20s) linear infinite;
+}
+
+.planet-sphere {
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset -18% -12% 28px rgba(0, 0, 0, 0.45),
+    inset 16% 12% 20px rgba(255, 255, 255, 0.16),
+    0 0 28px var(--glow, rgba(255, 255, 255, 0.25));
+}
+
+.planet-sphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.38), transparent 34%);
+  pointer-events: none;
+}
+
+.planet-mercury {
+  background:
+    radial-gradient(circle at 30% 28%, #efe6d8, #b7a48c 42%, #7d6d5a 100%);
+}
+
+.planet-venus {
+  background:
+    radial-gradient(circle at 32% 28%, #fff1c7, #e8b85c 48%, #b7791f 100%);
+}
+
+.planet-earth {
+  background:
+    radial-gradient(circle at 28% 24%, #9ee7ff 0 8%, transparent 9%),
+    radial-gradient(circle at 62% 58%, #2f8f4a 0 14%, transparent 15%),
+    radial-gradient(circle at 38% 70%, #1f6b3a 0 10%, transparent 12%),
+    radial-gradient(circle at 70% 32%, #f3f4f6 0 7%, transparent 9%),
+    radial-gradient(circle at 30% 28%, #7dd3fc, #2563eb 46%, #0f3a6e 100%);
+}
+
+.planet-mars {
+  background:
+    radial-gradient(circle at 68% 38%, #7f1d1d 0 8%, transparent 10%),
+    radial-gradient(circle at 30% 28%, #fda4af, #c2410c 50%, #7c2d12 100%);
+}
+
+.planet-jupiter {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #f5d0a9 0 8%,
+      #d4a574 8% 14%,
+      #f8e3c4 14% 20%,
+      #b45309 20% 24%,
+      #e8c39e 24% 32%
+    );
+}
+
+.planet-saturn {
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #f5e6c8 0 10%,
+      #e0c48a 10% 16%,
+      #f8edd4 16% 24%,
+      #c4a574 24% 30%
+    );
+}
+
+.planet-uranus {
+  background: radial-gradient(circle at 30% 28%, #d1fafa, #67e8f9 40%, #0e7490 100%);
+}
+
+.planet-neptune {
+  background:
+    radial-gradient(circle at 62% 48%, #1d4ed8 0 10%, transparent 12%),
+    radial-gradient(circle at 30% 28%, #93c5fd, #2563eb 48%, #1e3a8a 100%);
+}
+
+.saturn-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180%;
+  height: 42%;
+  border: 10px solid rgba(232, 213, 163, 0.72);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotateX(66deg);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.25);
+  pointer-events: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.timeline-line {
+  background: linear-gradient(90deg, #5ec8d8, #b29ad6, #d4b46a);
+}
+
+.bh-disk {
+  background: conic-gradient(
+    from 180deg,
+    transparent 0 12%,
+    #f97316 18%,
+    #facc15 30%,
+    #fb7185 42%,
+    transparent 55%,
+    #22d3ee 70%,
+    #c084fc 82%,
+    transparent 100%
+  );
+  filter: blur(0.4px);
+  animation: spin-slow 18s linear infinite;
+}
+
+.star-far {
+  opacity: 0.45;
+}
+
+.star-near {
+  filter: blur(0.2px);
+}
+
+.compare-bar {
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.article-prose p {
+  margin-top: 0.9rem;
+  max-width: 42rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+}
+
+.article-prose h2 {
+  scroll-margin-top: 6rem;
+}
+
+#quick-facts,
+#amazing-facts,
+#vocabulary,
+#visuals,
+#overview {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .star,
+  .floaty,
+  .drift,
+  .orbit-spin,
+  .bh-disk,
+  .compare-bar {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .btn:hover,
+  .chip:hover {
+    transform: none;
+  }
+}
