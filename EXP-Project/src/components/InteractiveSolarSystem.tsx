@@ -19,10 +19,12 @@ const orbits: Array<{ id: PlanetId; radius: number; duration: string; size: numb
 export function InteractiveSolarSystem() {
   const [selected, setSelected] = useState<PlanetId>("earth");
   const [paused, setPaused] = useState(false);
+  const [hoverPaused, setHoverPaused] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [fit, setFit] = useState(1);
   const stageRef = useRef<HTMLDivElement>(null);
   const planet = planets.find((item) => item.id === selected) ?? planets[2];
+  const orbitsPaused = paused || hoverPaused;
 
   useEffect(() => {
     const el = stageRef.current;
@@ -57,7 +59,12 @@ export function InteractiveSolarSystem() {
           </button>
         </div>
 
-        <div ref={stageRef} className="grid min-h-[380px] place-items-center overflow-hidden p-4 sm:min-h-[540px] sm:p-6">
+        <div
+          ref={stageRef}
+          className="grid min-h-[380px] place-items-center overflow-hidden p-4 sm:min-h-[540px] sm:p-6"
+          onPointerEnter={() => setHoverPaused(true)}
+          onPointerLeave={() => setHoverPaused(false)}
+        >
           <div
             className="relative aspect-square w-[min(92vw,720px)] origin-center transition-transform duration-300"
             style={{ transform: `scale(${zoom * fit})` }}
@@ -94,7 +101,7 @@ export function InteractiveSolarSystem() {
                       width: orbit.radius * 2,
                       height: orbit.radius * 2,
                       animation: `spin-slow ${orbit.duration} linear infinite`,
-                      animationPlayState: paused ? "paused" : "running",
+                      animationPlayState: orbitsPaused ? "paused" : "running",
                     }}
                   >
                     <button
@@ -102,7 +109,7 @@ export function InteractiveSolarSystem() {
                       onClick={() => setSelected(body.id)}
                       aria-label={`Learn about ${body.name}`}
                       aria-pressed={active}
-                      className={`absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full active:scale-95 ${
+                      className={`absolute left-1/2 top-0 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full active:scale-95 ${
                         active ? "ring-2 ring-white" : ""
                       }`}
                     >

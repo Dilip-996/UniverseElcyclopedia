@@ -13,7 +13,7 @@ export function Footer() {
           </p>
         </div>
         <nav aria-label="Footer" className="flex flex-wrap gap-2.5">
-          {[...navLinks, ...secondaryNavLinks].map((link) => (
+          {[...navLinks, ...secondaryNavLinks, { href: "/privacy", label: "Privacy" }].map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -25,7 +25,8 @@ export function Footer() {
         </nav>
       </div>
       <p className="border-t border-white/5 px-4 py-4 text-center text-xs text-slate-500">
-        Written for classroom curiosity. Numbers are rounded when that helps a reader understand scale.
+        Written for classroom curiosity. Numbers are rounded when that helps a reader understand scale. No accounts or
+        tracking cookies.
       </p>
     </footer>
   );

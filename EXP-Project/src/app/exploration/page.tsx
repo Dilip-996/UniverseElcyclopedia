@@ -1,6 +1,12 @@
 import { CategoryLanding } from "@/components/encyclopedia/CategoryLanding";
 import { MissionCard } from "@/components/MissionCard";
 import { missions } from "@/data/missions";
+import { pageMeta } from "@/lib/metadata";
+
+export const metadata = pageMeta(
+  "Space Exploration",
+  "Meet the people and machines that leave Earth so the rest of us can look farther into space.",
+);
 
 export default function ExplorationPage() {
   return (

@@ -42,8 +42,7 @@ export default function HomePage() {
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-solar">Directory</p>
           <h2 className="mt-2 font-display text-3xl text-white sm:text-4xl">Browse the encyclopedia</h2>
           <p className="mt-3 max-w-2xl text-slate-300">
-            {encyclopediaEntries.length} illustrated articles so far. More topics are listed so you can see how the
-            library will grow.
+            {encyclopediaEntries.length} illustrated articles are ready to read. Topics marked Soon are planned next.
           </p>
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             {encyclopediaDirectory.map((group) => (
@@ -51,21 +50,26 @@ export default function HomePage() {
                 <h3 className="font-display text-2xl text-white">{group.label}</h3>
                 <p className="mt-2 text-sm text-slate-400">{group.intro}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
-                  {group.topics.map((topic) => {
-                    const href = topic.slug
-                      ? `/encyclopedia/${topic.slug}`
-                      : `/encyclopedia?q=${encodeURIComponent(topic.query ?? topic.title)}`;
-                    return (
-                      <li key={topic.title}>
+                  {group.topics.map((topic) => (
+                    <li key={topic.title}>
+                      {topic.slug ? (
                         <Link
-                          href={href}
+                          href={`/encyclopedia/${topic.slug}`}
                           className="inline-flex rounded-full border border-white/10 px-3 py-1.5 text-sm text-slate-200 hover:bg-white/10"
                         >
                           {topic.title}
                         </Link>
-                      </li>
-                    );
-                  })}
+                      ) : (
+                        <span
+                          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-sm text-slate-500"
+                          title="Article coming soon"
+                        >
+                          {topic.title}
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Soon</span>
+                        </span>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </section>
             ))}

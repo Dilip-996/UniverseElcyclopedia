@@ -1,5 +1,11 @@
 import { CategoryLanding } from "@/components/encyclopedia/CategoryLanding";
 import { BlackHoleVisual } from "@/components/BlackHoleVisual";
+import { pageMeta } from "@/lib/metadata";
+
+export const metadata = pageMeta(
+  "Deep Space",
+  "Read about nebulae, black holes, and other distant wonders beyond our solar system.",
+);
 
 export default function DeepSpacePage() {
   return (

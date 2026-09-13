@@ -1,5 +1,11 @@
 import { EncyclopediaBrowse } from "@/components/encyclopedia/EncyclopediaBrowse";
 import type { EncyclopediaCategory } from "@/data/encyclopedia/types";
+import { pageMeta } from "@/lib/metadata";
+
+export const metadata = pageMeta(
+  "Encyclopedia",
+  "Search and browse illustrated articles about planets, stars, galaxies, black holes, and space exploration.",
+);
 
 const categories: EncyclopediaCategory[] = [
   "solar-system",

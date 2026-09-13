@@ -10,10 +10,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const entry = getEntry(slug);
-  if (!entry) return { title: "Topic not found" };
+  if (!entry) return { title: "Topic not found", robots: { index: false, follow: false } };
   return {
-    title: `${entry.title} — Cosmic Kids Encyclopedia`,
+    title: entry.title,
     description: entry.shortDescription,
+    openGraph: { title: entry.title, description: entry.shortDescription },
   };
 }
 

@@ -1,5 +1,11 @@
 import { CategoryLanding } from "@/components/encyclopedia/CategoryLanding";
 import { GalaxyVisual } from "@/components/GalaxyVisual";
+import { pageMeta } from "@/lib/metadata";
+
+export const metadata = pageMeta(
+  "Galaxies",
+  "Explore spiral, elliptical, and irregular galaxies, and find our place in the Milky Way.",
+);
 
 export default function GalaxiesPage() {
   return (

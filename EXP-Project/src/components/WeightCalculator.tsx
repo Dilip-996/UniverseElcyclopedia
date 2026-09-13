@@ -25,7 +25,10 @@ export function WeightCalculator() {
         min={1}
         max={200}
         value={weight}
-        onChange={(event) => setWeight(Number(event.target.value) || 0)}
+        onChange={(event) => {
+          const next = Number(event.target.value);
+          setWeight(Number.isFinite(next) ? Math.min(200, Math.max(0, next)) : 0);
+        }}
         className="mt-2 w-40 rounded-2xl border border-white/15 bg-black/30 px-4 py-3 text-lg outline-none focus:border-aurora"
       />
       <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

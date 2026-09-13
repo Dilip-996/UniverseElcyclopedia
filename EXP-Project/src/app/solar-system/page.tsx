@@ -1,6 +1,12 @@
 import { CategoryLanding } from "@/components/encyclopedia/CategoryLanding";
 import { InteractiveSolarSystem } from "@/components/InteractiveSolarSystem";
+import { pageMeta } from "@/lib/metadata";
 import Link from "next/link";
+
+export const metadata = pageMeta(
+  "Solar System",
+  "Spin a map of the solar system, tap a planet, and read encyclopedia articles about our home star and its worlds.",
+);
 
 export default function SolarSystemPage() {
   return (

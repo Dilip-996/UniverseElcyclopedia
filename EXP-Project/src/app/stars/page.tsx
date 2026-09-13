@@ -1,5 +1,11 @@
 import { CategoryLanding } from "@/components/encyclopedia/CategoryLanding";
 import { StarLifeTimeline } from "@/components/StarLifeTimeline";
+import { pageMeta } from "@/lib/metadata";
+
+export const metadata = pageMeta(
+  "Stars",
+  "Learn how stars are born, why they shine in different colors, and what remains when they die.",
+);
 
 export default function StarsPage() {
   return (

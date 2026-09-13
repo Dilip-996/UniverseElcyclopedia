@@ -12,7 +12,7 @@ const metricGetters: Record<string, (planet: Planet) => number> = {
 };
 
 function formatValue(metric: string, value: number) {
-  if (metric === "diameterKm") return `${value.toLocaleString()} km`;
+  if (metric === "diameterKm") return `${value.toLocaleString("en-US")} km`;
   if (metric === "distanceAu") return `${value} AU`;
   if (metric === "moons") return `${value} moons`;
   return `${value}× Earth`;
